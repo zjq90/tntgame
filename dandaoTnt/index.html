@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹弹堂风格游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="1200" height="700"></canvas>
+        <div class="ui-panel">
+            <div class="player-info">
+                <div class="health-bar">
+                    <div class="health-label">玩家血量</div>
+                    <div class="health-fill" id="playerHealth"></div>
+                </div>
+                <div class="health-bar">
+                    <div class="health-label">敌人血量</div>
+                    <div class="health-fill" id="enemyHealth"></div>
+                </div>
+            </div>
+            <div class="control-panel">
+                <div class="angle-control">
+                    <label>角度: <span id="angleValue">45</span>°</label>
+                </div>
+                <div class="power-control">
+                    <div class="power-label">蓄力条 (左强右弱)</div>
+                    <div class="power-bar-container">
+                        <div class="power-bar-scale">
+                            <span class="scale-mark">100</span>
+                            <span class="scale-mark">80</span>
+                            <span class="scale-mark">60</span>
+                            <span class="scale-mark">40</span>
+                            <span class="scale-mark">20</span>
+                            <span class="scale-mark">0</span>
+                        </div>
+                        <div class="power-bar">
+                            <div class="power-fill" id="powerFill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    <p>操作说明：</p>
+                    <p>• 鼠标移动调整射击角度</p>
+                    <p>• 按住空格键蓄力，松开发射</p>
+                    <p>• 蓄力条左强右弱</p>
+                    <p>• 攻击力: 90 (10%暴击率, 伤害+50%)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/audio.js"></script>
+    <script src="js/terrain.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/weapon.js"></script>
+    <script src="js/bullet.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

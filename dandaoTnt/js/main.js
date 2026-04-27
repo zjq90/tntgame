@@ -320,12 +320,12 @@ class Game {
             this.currentBullet = null;
             
             if (this.state === 'player_turn' && !this.playerWeapon.isBulletFlying) {
+                if (this.state !== 'player_win' && this.state !== 'player_lose') {
+                    this.state = 'enemy_turn';
+                }
                 setTimeout(() => {
-                    if (this.state === 'player_turn') {
-                        this.state = 'enemy_turn';
-                        this.enemyAI.isThinking = true;
-                        this.enemyAI.thinkTimer = 0;
-                    }
+                    this.enemyAI.isThinking = true;
+                    this.enemyAI.thinkTimer = 0;
                 }, 1000);
             } else if (this.state === 'enemy_turn' && !this.enemyWeapon.isBulletFlying) {
                 setTimeout(() => {
@@ -339,12 +339,12 @@ class Game {
             
             if (wasPlayerBullet) {
                 this.playerWeapon.clearBullet();
+                if (this.state !== 'player_win' && this.state !== 'player_lose') {
+                    this.state = 'enemy_turn';
+                }
                 setTimeout(() => {
-                    if (this.state === 'player_turn') {
-                        this.state = 'enemy_turn';
-                        this.enemyAI.isThinking = true;
-                        this.enemyAI.thinkTimer = 0;
-                    }
+                    this.enemyAI.isThinking = true;
+                    this.enemyAI.thinkTimer = 0;
                 }, 500);
             } else {
                 this.enemyWeapon.clearBullet();
